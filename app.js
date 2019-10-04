@@ -53,4 +53,8 @@ document.querySelector("#search-term").addEventListener('input', (e) => {
 //     console.log(e.target.checked)
 // })
 
+document.querySelector("#filter-by").addEventListener('change', (e) => {
+    console.log(e.target.value)
+})
+
 
