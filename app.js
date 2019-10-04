@@ -38,13 +38,15 @@ document.querySelector('#remove-all').addEventListener('click', () => {
     })
 })
 
-document.querySelector('#create-chore').addEventListener('click', (e) => {
-    
-})
-
 document.querySelector("#search-term").addEventListener('input', (e) => {
     filters.searchTerm = e.target.value
     renderList(chores, filters)
 })
+
+document.querySelector('#chore-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(e.target.elements.newChore.value)
+    e.target.elements.newChore.value = ""
+});
 
 
