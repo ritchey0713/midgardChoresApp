@@ -35,8 +35,8 @@ document.querySelector('#create-chore').addEventListener('click', (e) => {
     
 })
 
-document.querySelector("#search-term").addEventListener('change', (e) => {
-    
+document.querySelector("#search-term").addEventListener('input', (e) => {
+    console.log(e.target.value)
 })
 
 
