@@ -13,7 +13,11 @@ const notes = [
     }
 ]
 
-const generateobjList = (notes) => {
+const filters = {
+    seachTerm = ""
+}
+
+const renderList = (notes, filters) => {
     notes.forEach((note) => {
         const newPara = document.createElement('p')
         newPara.textContent = note.title
@@ -23,7 +27,9 @@ const generateobjList = (notes) => {
 
 };
 
-generateobjList(notes)
+renderList(notes,filters)
+
+
 
 document.querySelector('#remove-all').addEventListener('click', () => {
     document.querySelectorAll(".note").forEach((note)=> {
