@@ -1,4 +1,4 @@
-const notes = [
+const chores = [
     {
         title: "buy food",
         body: "body 1"
@@ -14,26 +14,27 @@ const notes = [
 ]
 
 const filters = {
-    seachTerm = ""
+    searchTerm: ""
 }
 
-const renderList = (notes, filters) => {
-    notes.forEach((note) => {
-        const newPara = document.createElement('p')
-        newPara.textContent = note.title
-        newPara.className = "note"
-        document.body.appendChild(newPara)
-    });
+const renderList = (chores, filters) => {
+    const filteredList = chores.filter((note)=> {
+        return note.title.toLowerCase().includes(filters.searchTerm.toLowerCase())
+    })
+    document.querySelector("#chores").innerHTML = ""
+    filteredList.forEach((chore)=> {
+        const choreEl = document.createElement("p")
+        choreEl.textContent = chore.title 
+        document.querySelector("#chores").appendChild(choreEl)
+    })
 
 };
 
-renderList(notes,filters)
-
-
+renderList(chores, filters)
 
 document.querySelector('#remove-all').addEventListener('click', () => {
-    document.querySelectorAll(".note").forEach((note)=> {
-        note.remove()
+    document.querySelectorAll(".note").forEach((chore)=> {
+        chore.remove()
     })
 })
 
@@ -42,7 +43,8 @@ document.querySelector('#create-chore').addEventListener('click', (e) => {
 })
 
 document.querySelector("#search-term").addEventListener('input', (e) => {
-    console.log(e.target.value)
+    filters.searchTerm = e.target.value
+    renderList(chores, filters)
 })
 
 
