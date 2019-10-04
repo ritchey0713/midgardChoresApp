@@ -1,20 +1,13 @@
-const chores = [
-    {
-        title: "buy food",
-        body: "body 1"
-    },
-    {
-        title: "Pay bills",
-        body: "body 2"
-    },
-    {
-        title: "Code some shit",
-        body: "body 2"
-    }
-]
+let chores = []
 
 const filters = {
     searchTerm: ""
+}
+
+const choresJSON = localStorage.getItem("chores")
+
+if (choresJSON != null) {
+    chores = JSON.parse(choresJSON)
 }
 
 const renderList = (chores, filters) => {
@@ -56,5 +49,7 @@ document.querySelector("#search-term").addEventListener('input', (e) => {
 document.querySelector("#filter-by").addEventListener('change', (e) => {
     console.log(e.target.value)
 })
+
+document.querySelector("#create-chore").addEventListener()
 
 
