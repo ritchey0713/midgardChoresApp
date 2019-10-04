@@ -10,6 +10,12 @@
     <h1>Chores App</h1>
     <h2>Track your daily chores!</h2>
     <input id="search-term" type="text" placeholder="Search for chores">
+    <select id="filter-by">
+        <option></option>
+        <option value="byEdited">Sort by Last edited</option>
+        <option value="byCreated">Sort by recnetly created</option>
+        <option value="alphabetical">Sort alphabetically</option>
+    </select>
     <div id="chores">
 
     </div>
@@ -18,9 +24,7 @@
         <input type="text" placeholder="Add a new Chore" name="newChore">
         <button>Submit</button>
     </form> -->
-    <label>
-        <input type="checkbox" id="tester"> True
-    </label>
+    
     
 </body>
     <script src="app.js"></script>
