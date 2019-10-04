@@ -43,10 +43,14 @@ document.querySelector("#search-term").addEventListener('input', (e) => {
     renderList(chores, filters)
 })
 
-document.querySelector('#chore-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log(e.target.elements.newChore.value)
-    e.target.elements.newChore.value = ""
-});
+// document.querySelector('#chore-form').addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     console.log(e.target.elements.newChore.value)
+//     e.target.elements.newChore.value = ""
+// });
+
+// document.querySelector('#tester').addEventListener("change", (e) => {
+//     console.log(e.target.checked)
+// })
 
 
