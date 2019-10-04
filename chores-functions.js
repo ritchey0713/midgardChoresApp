@@ -11,19 +11,20 @@ const getChores = () => {
 
 // generate chore dom
 const generateChores = (chore) => {
-    
-    const choreEl = document.createElement("p")
+    const choreEl = document.createElement("div")
+    const textEl = document.createElement("span")
     const deleteButton = document.createElement("button")
     
     deleteButton.textContent = "X"
 
         if (chore.title.length > 0){
-            choreEl.textContent = chore.title 
+            textEl.textContent = chore.title 
         } else {
-            choreEl.textContent = "Unnamed Chore"
+            textEl.textContent = "Unnamed Chore"
         }
 
         choreEl.appendChild(deleteButton)
+        choreEl.appendChild(textEl)
         return choreEl;
 }
 
