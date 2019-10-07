@@ -1,4 +1,4 @@
-const chores = getChores()
+let chores = getChores()
 
 const filters = {
     searchTerm: ""
@@ -39,4 +39,10 @@ document.querySelector("#create-chore").addEventListener("click", (e) => {
     location.assign(`/edit-chore.html#${chore.id}`)
 });
 
-
+window.addEventListener("storage", (e) => {
+    // debugger;
+    if (e.key === "chores") {
+        chores = JSON.parse(e.newValue)
+        renderList(chores, filters)
+    }
+})
