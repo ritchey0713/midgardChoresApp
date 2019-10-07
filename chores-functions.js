@@ -28,7 +28,7 @@ const generateChores = (chore) => {
             textEl.textContent = "Unnamed Chore"
         }
         
-        textEl.setAttribute("href", "/edit-chore.html")
+        textEl.setAttribute("href", `/edit-chore.html#${chore.id}`)
         choreEl.appendChild(deleteButton)
         choreEl.appendChild(textEl)
         return choreEl;
