@@ -31,7 +31,7 @@ document.querySelector("#create-chore").addEventListener("click", (e) => {
     const chore = {
         id: uuidv4(),
         title: "",
-        description: ""
+        body: ""
     }
     chores.push(chore);
     saveChore(chores)
