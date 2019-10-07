@@ -29,7 +29,7 @@ document.querySelector("#filter-by").addEventListener('change', (e) => {
 
 document.querySelector("#create-chore").addEventListener("click", (e) => {
     const chore = {
-        id: uuid(),
+        id: uuidv4(),
         title: "",
         description: ""
     }
