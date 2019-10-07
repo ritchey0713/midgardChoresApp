@@ -12,7 +12,7 @@ const getChores = () => {
 // generate chore dom
 const generateChores = (chore) => {
     const choreEl = document.createElement("div")
-    const textEl = document.createElement("span")
+    const textEl = document.createElement("a")
     const deleteButton = document.createElement("button")
     
     deleteButton.textContent = "X"
@@ -27,7 +27,8 @@ const generateChores = (chore) => {
         } else {
             textEl.textContent = "Unnamed Chore"
         }
-
+        
+        textEl.setAttribute("href", "/edit-chore.html")
         choreEl.appendChild(deleteButton)
         choreEl.appendChild(textEl)
         return choreEl;
