@@ -1,19 +1,18 @@
 const choreId = location.hash.substring(1)
-const chores = getChores()
-const chore = chores.find((chore) => {
+let chores = getChores()
+let chore = chores.find((chore) => {
         return chore.id == choreId
     })
 
 const titleEl = document.querySelector("#chore-title")
 const bodyEl = document.querySelector("#chore-body")
 
-titleEl.value = chore.title 
-bodyEl.value = chore.body
-
-
 if (chore == undefined) {
     location.assign("/index.html")
 }
+
+titleEl.value = chore.title 
+bodyEl.value = chore.body
 
 
 
@@ -32,3 +31,21 @@ document.querySelector("#remove-chore").addEventListener("click", () => {
     saveChore(chores)
     location.assign("/index.html")
 })
+
+//live data change
+window.addEventListener("storage", (e) => {
+    
+    if(e.key === "chores") {
+        chores = JSON.parse(e.newValue)
+        let chore = chores.find((chore) => {
+            return chore.id == choreId
+        });
+
+        if (chore == undefined) {
+            location.assign("/index.html")
+        }
+
+        titleEl.value = chore.title 
+        bodyEl.value = chore.body
+    }
+});
