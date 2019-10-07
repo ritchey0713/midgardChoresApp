@@ -35,7 +35,8 @@ document.querySelector("#create-chore").addEventListener("click", (e) => {
     }
     chores.push(chore);
     saveChore(chores)
-    renderList(chores, filters)
+    // renderList(chores, filters)
+    location.assign(`/edit-chore.html#${chore.id}`)
 });
 
 
