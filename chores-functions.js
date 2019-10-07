@@ -16,6 +16,11 @@ const generateChores = (chore) => {
     const deleteButton = document.createElement("button")
     
     deleteButton.textContent = "X"
+    deleteButton.addEventListener('click', (e) => {
+        removeChore(chore.id)
+        saveChore(chores)
+        renderList(chores, filters)
+    })
 
         if (chore.title.length > 0){
             textEl.textContent = chore.title 
@@ -42,5 +47,15 @@ const renderList = (chores, filters) => {
 
 const saveChore = (chores) => {
     localStorage.setItem("chores", JSON.stringify(chores))
+}
+
+const removeChore = (id) => {
+    const choreIndex = chores.findIndex((chore) => {
+        return chore.id === id
+    });
+
+    if(choreIndex > -1 ){
+        chores.splice(choreIndex, 1)
+    }
 }
 
