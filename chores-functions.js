@@ -60,3 +60,7 @@ const removeChore = (id) => {
     }
 }
 
+const updatedStr = (chore) => {
+    updatedEl.textContent = `${moment(chore.updatedAt).fromNow()}`
+    } 
+
