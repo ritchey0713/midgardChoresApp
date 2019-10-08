@@ -1,7 +1,8 @@
 let chores = getChores()
 
 const filters = {
-    searchTerm: ""
+    searchTerm: "",
+    sortBy: "byCreated"
 }
 
 renderList(chores, filters)
@@ -24,7 +25,8 @@ document.querySelector("#search-term").addEventListener('input', (e) => {
 // });
 
 document.querySelector("#filter-by").addEventListener('change', (e) => {
-    console.log(e.target.value)
+    filters.sortBy = e.target.value
+    renderList(chores, filters)
 });
 
 document.querySelector("#create-chore").addEventListener("click", (e) => {
