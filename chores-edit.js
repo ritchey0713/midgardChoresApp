@@ -5,6 +5,7 @@ let chore = chores.find((chore) => {
     })
 
 const titleEl = document.querySelector("#chore-title")
+const updatedEl = document.querySelector("#updated-at")
 const bodyEl = document.querySelector("#chore-body")
 
 if (chore == undefined) {
@@ -13,8 +14,7 @@ if (chore == undefined) {
 
 titleEl.value = chore.title 
 bodyEl.value = chore.body
-
-
+updatedEl.textContent = `${moment(chore.updatedAt).fromNow()}`
 
 titleEl.addEventListener("input", (e) => {
     chore.title = e.target.value 
