@@ -18,11 +18,13 @@ bodyEl.value = chore.body
 
 titleEl.addEventListener("input", (e) => {
     chore.title = e.target.value 
+    chore.updatedAt = moment().valueOf();
     saveChore(chores)
 })
 
 bodyEl.addEventListener("input", (e) => {
-    chore.body = e.target.value 
+    chore.body = e.target.value
+    chore.updatedAt = moment().valueOf();
     saveChore(chores)
 })
 
