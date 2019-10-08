@@ -28,10 +28,13 @@ document.querySelector("#filter-by").addEventListener('change', (e) => {
 });
 
 document.querySelector("#create-chore").addEventListener("click", (e) => {
+    const timeStamp = moment().valueOf()
     const chore = {
         id: uuidv4(),
         title: "",
-        body: ""
+        body: "",
+        createdAt: timeStamp,
+        updatedAt: timeStamp
     }
     chores.push(chore);
     saveChore(chores)
@@ -45,4 +48,5 @@ window.addEventListener("storage", (e) => {
         chores = JSON.parse(e.newValue)
         renderList(chores, filters)
     }
-})
+});
+
