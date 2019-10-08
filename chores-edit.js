@@ -14,17 +14,19 @@ if (chore == undefined) {
 
 titleEl.value = chore.title 
 bodyEl.value = chore.body
-updatedEl.textContent = `${moment(chore.updatedAt).fromNow()}`
+updatedStr(chore)
 
 titleEl.addEventListener("input", (e) => {
     chore.title = e.target.value 
     chore.updatedAt = moment().valueOf();
+    updatedStr(chore)
     saveChore(chores)
 })
 
 bodyEl.addEventListener("input", (e) => {
     chore.body = e.target.value
     chore.updatedAt = moment().valueOf();
+    updatedStr(chore)
     saveChore(chores)
 })
 
