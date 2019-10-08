@@ -35,6 +35,8 @@ const generateChores = (chore) => {
 }
 
 const renderList = (chores, filters) => {
+    chores = sortChores(chores, filters.sortBy)
+    console.log(chores)
     const filteredList = chores.filter((note)=> {
         return note.title.toLowerCase().includes(filters.searchTerm.toLowerCase())
     })
@@ -63,4 +65,42 @@ const removeChore = (id) => {
 const updatedStr = (chore) => {
     updatedEl.textContent = `${moment(chore.updatedAt).fromNow()}`
     } 
+
+const sortChores = (chores, filter) => {
+    if(filter === "byEdited"){
+        return chores.sort((choreA, choreB) => {
+            if (choreA.updatedAt > choreB.updatedAt) {
+                return -1
+            } else if (choreA.updatedAt < choreB.updatedAt) {
+                return 1
+            }else {
+                return 0
+            } 
+            
+        });
+    } else if (filter === "byCreated") {
+        return chores.sort((choreA, choreB) => {
+            if (choreA.createdAt > choreB.createdAt) {
+                return -1
+            } else if (choreA.createdAt < choreB.createdAt) {
+                return 1
+            } else {
+                return 0 
+            }
+        })
+    } else if (filter === "alphabetical") {
+        return chores.sort((choreA, choreB) => {
+            if(choreA.title.toLowerCase() < choreB.title.toLowerCase()) {
+                return -1
+            } else if (choreA.title.toLowerCase() > choreB.title.toLowerCase()) {
+                return 1
+            }else {
+                return 0
+            }
+        })
+    } 
+    else {
+        return chores
+    }
+}
 
