@@ -36,10 +36,8 @@ const generateChores = (chore) => {
 
 const renderList = (chores, filters) => {
     chores = sortChores(chores, filters.sortBy)
-    console.log(chores)
-    const filteredList = chores.filter((note)=> {
-        return note.title.toLowerCase().includes(filters.searchTerm.toLowerCase())
-    })
+    const filteredList = chores.filter((note)=> note.title.toLowerCase().includes(filters.searchTerm.toLowerCase()));
+
     document.querySelector("#chores").innerHTML = ""
     filteredList.forEach((chore)=> {
         const choreEl = generateChores(chore)
@@ -48,14 +46,11 @@ const renderList = (chores, filters) => {
 
 };
 
-const saveChore = (chores) => {
-    localStorage.setItem("chores", JSON.stringify(chores))
-}
+const saveChore = (chores) => localStorage.setItem("chores", JSON.stringify(chores))
+
 
 const removeChore = (id) => {
-    const choreIndex = chores.findIndex((chore) => {
-        return chore.id === id
-    });
+    const choreIndex = chores.findIndex((chore) => chore.id === id);
 
     if(choreIndex > -1 ){
         chores.splice(choreIndex, 1)
