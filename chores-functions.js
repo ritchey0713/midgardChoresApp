@@ -1,12 +1,6 @@
 const getChores = () => {
     const choresJSON = localStorage.getItem("chores")
-
-    if (choresJSON != null) {
-        return JSON.parse(choresJSON)
-    } else {
-        return []
-    }
-
+    return choresJSON != null ? JSON.parse(choresJSON) : []
 }
 
 // generate chore dom
