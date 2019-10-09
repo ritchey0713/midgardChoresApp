@@ -1,6 +1,12 @@
+"use strict"
+
 const getChores = () => {
     const choresJSON = localStorage.getItem("chores")
-    return choresJSON != null ? JSON.parse(choresJSON) : []
+    try {
+        return choresJSON != null ? JSON.parse(choresJSON) : []
+    } catch (error) {
+        return []
+    }
 }
 
 // generate chore dom

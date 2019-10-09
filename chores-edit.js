@@ -1,3 +1,5 @@
+"use strict"
+
 const choreId = location.hash.substring(1)
 let chores = getChores()
 let chore = chores.find((chore) => {
