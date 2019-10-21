@@ -35,14 +35,23 @@ const generateChores = (chore) => {
 }
 
 const renderList = (chores, filters) => {
+    const choresDiv =  document.querySelector("#chores")
     chores = sortChores(chores, filters.sortBy)
     const filteredList = chores.filter((note)=> note.title.toLowerCase().includes(filters.searchTerm.toLowerCase()));
 
-    document.querySelector("#chores").innerHTML = ""
+    choresDiv.innerHTML = ""
+
+    if(filteredList.length > 0){
     filteredList.forEach((chore)=> {
         const choreEl = generateChores(chore)
-        document.querySelector("#chores").appendChild(choreEl)
+        choresDiv.appendChild(choreEl)
     })
+    } else {
+        const paraEl = document.createElement("p")
+        paraEl.classList.add("empty-message")
+        paraEl.textContent = "Please add a chore to get started!"
+        choresDiv.appendChild(paraEl)
+    }
 
 };
 
