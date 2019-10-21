@@ -16,7 +16,7 @@ if (chore == undefined) {
 
 titleEl.value = chore.title 
 bodyEl.value = chore.body
-updatedStr(chore)
+updatedEl.textContent = updatedStr(chore)
 
 titleEl.addEventListener("input", (e) => {
     chore.title = e.target.value 
