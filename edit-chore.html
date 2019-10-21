@@ -4,17 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="styles/chores.css" rel="stylesheet">
     <title>Edit Chore</title>
 </head>
 <body>
-    <a href="/index.html">Go Home</a>
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Chores App</h1>
+                <h2 class="header__subtitle">Track your daily chores!</h2>
+            </div>
+        </header>
+        <div class="actions">
+            <div class="actions__container actions__container--spaced">
+                <a href="/index.html">Go Home</a>
+                <span id="updated-at"></span>
+            </div>
+        </div>
+
     <input id="chore-title" placeholder="Chore Title">
-    <span id=updated-at></span>
     <textarea id="chore-body" placeholder="Chore Body"></textarea>
     <button id="remove-chore">Remove chore</button>
     
 </body>
-<script src="moment.js"></script>
-<script src="chores-functions.js"></script>
-<script src="chores-edit.js"></script>
+<script src="scripts/moment.js"></script>
+<script src="scripts/chores-functions.js"></script>
+<script src="scripts/chores-edit.js"></script>
 </html>
