@@ -11,16 +11,13 @@ const getChores = () => {
 
 // generate chore dom
 const generateChores = (chore) => {
-    const choreEl = document.createElement("div")
-    const textEl = document.createElement("a")
-    const deleteButton = document.createElement("button")
-    
-    deleteButton.textContent = "X"
-    deleteButton.addEventListener('click', (e) => {
-        removeChore(chore.id)
-        saveChore(chores)
-        renderList(chores, filters)
-    })
+    const choreEl = document.createElement("a")
+    const textEl = document.createElement("p")
+    const status = document.createElement('p')
+
+    choreEl.classList.add("list-item")
+    textEl.classList.add("list-item__title")
+    status.classList.add("list-item__subtitle")
 
         if (chore.title.length > 0){
             textEl.textContent = chore.title 
@@ -28,9 +25,11 @@ const generateChores = (chore) => {
             textEl.textContent = "Unnamed Chore"
         }
         
-        textEl.setAttribute("href", `/edit-chore.html#${chore.id}`)
-        choreEl.appendChild(deleteButton)
         choreEl.appendChild(textEl)
+
+        choreEl.setAttribute("href", `/edit-chore.html#${chore.id}`)
+        status.textContent = updatedStr(chore)
+        choreEl.appendChild(status)
         return choreEl;
 }
 
@@ -67,7 +66,7 @@ const removeChore = (id) => {
 }
 
 const updatedStr = (chore) => {
-    updatedEl.textContent = `${moment(chore.updatedAt).fromNow()}`
+    return `${moment(chore.updatedAt).fromNow()}`
     } 
 
 const sortChores = (chores, filter) => {
